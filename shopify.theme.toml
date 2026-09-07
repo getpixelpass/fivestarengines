@@ -1,0 +1,5 @@
+[environments.development]
+store = "five-star-engines-zrj0dbjp.myshopify.com"
+
+[environments.production]
+store = "five-star-engines-zrj0dbjp.myshopify.com"
