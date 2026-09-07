@@ -1,0 +1,25 @@
+# Normalize line endings to LF for all text files.
+# Shopify stores theme files with LF; this prevents Windows CRLF churn.
+* text=auto eol=lf
+
+*.liquid text eol=lf
+*.json   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.md     text eol=lf
+*.svg    text eol=lf
+
+# Binary assets — never touch.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary
+*.eot   binary
+*.ttf   binary
+*.otf   binary
+*.mp4   binary
+*.webm  binary
