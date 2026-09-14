@@ -185,6 +185,14 @@ inspiration, unless noted otherwise.
   (title, button label, link/file) — simple, merchant-editable, no
   need for a metaobject given the small, slow-growing count.
 
+## Outstanding to-dos
+
+- `main-menu` nav items **Replacement Engines, About, Gallery,
+  Resources, Contact** currently point at the Home page as a
+  placeholder (2026-09-14) — repoint each to its real
+  collection/page as it gets built. Only **Crate Engines** links to
+  its real destination so far.
+
 ## Open questions to resolve
 
 1. Testimonials: hand-entered by merchant, or from a review app?
