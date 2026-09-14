@@ -13,6 +13,18 @@ inspiration, unless noted otherwise.
 
 ---
 
+## ⚠️ Pre-launch blockers
+
+- **Fonts are placeholders, not licensed for production.** Nav/accent
+  text uses "Neue Regrade Extrabold" and headings use "Interstate Bold
+  Condensed," both self-hosted from `docs`-untracked source files
+  pulled from font-aggregator sites (Befonts, OnlineWebFonts) with no
+  verified web-embedding rights. Wired up 2026-09-14 to unblock dev —
+  see `snippets/pp-fonts.liquid` for the swap point (just replace the
+  two `.woff2` files in `/assets`, no other code changes needed).
+  **Must be replaced with properly-licensed files (or a free
+  alternative like Overpass) before this site goes live.**
+
 ## Global (appears on every / most pages)
 
 - 🟢 **Header** — logo, nav (Crate Engines, Replacement Engines, About,
