@@ -1,10 +1,10 @@
 
 
 {% liquid
-  assign order = 'logo,menu,localization,search,drawer_search,actions'
+  assign order = 'logo,catalog_menu,menu,localization,search,drawer_search,actions'
 
   if shop.customer_accounts_enabled
-    assign order = 'drawer_search,logo,menu,localization,search,actions'
+    assign order = 'drawer_search,logo,catalog_menu,menu,localization,search,actions'
   endif
 
   assign rows = 'top,bottom' | split: ','
@@ -88,6 +88,16 @@
     content_for 'block', type: '_header-menu', id: 'header-menu'
   endcapture
 
+  # pp: secondary nav group (Crate Engines / Replacement Engines), rendered
+  # next to the logo while the primary menu block sits elsewhere in the row.
+  capture catalog_menu
+    content_for 'block', type: '_header-menu', id: 'header-menu-secondary'
+  endcapture
+
+  capture catalog_drawer_menu
+    content_for 'block', type: '_header-menu', id: 'header-menu-secondary', variant: 'mobile'
+  endcapture
+
   capture drawer_menu
     content_for 'block', type: '_header-menu', id: 'header-menu', variant: 'mobile'
   endcapture
@@ -113,23 +123,23 @@
   if section.settings.localization_position == 'left'
     if section.settings.search_position == 'left'
       if shop.customer_accounts_enabled
-        assign order = 'drawer_search,logo,search,localization,menu,actions'
+        assign order = 'drawer_search,logo,catalog_menu,search,localization,menu,actions'
       else
-        assign order = 'logo,search,localization,menu,drawer_search,actions'
+        assign order = 'logo,catalog_menu,search,localization,menu,drawer_search,actions'
       endif
     else
       if shop.customer_accounts_enabled
-        assign order = 'drawer_search,logo,localization,menu,search,actions'
+        assign order = 'drawer_search,logo,catalog_menu,localization,menu,search,actions'
       else
-        assign order = 'logo,localization,menu,search,drawer_search,actions'
+        assign order = 'logo,catalog_menu,localization,menu,search,drawer_search,actions'
       endif
     endif
   else
     if section.settings.search_position == 'left'
       if shop.customer_accounts_enabled
-        assign order = 'drawer_search,logo,search,menu,localization,actions'
+        assign order = 'drawer_search,logo,catalog_menu,search,menu,localization,actions'
       else
-        assign order = 'logo,search,menu,localization,drawer_search,actions'
+        assign order = 'logo,catalog_menu,search,menu,localization,drawer_search,actions'
       endif
     endif
   endif
@@ -397,7 +407,9 @@
 
       case row
         when 'top'
-          assign first = drawer_menu
+          # pp: include both menus' mobile drawer triggers so Crate/Replacement
+          # Engines stay reachable on mobile — see catalog_menu note above.
+          assign first = drawer_menu | append: catalog_drawer_menu
 
           if bottom_row_blocks.size > 0 and section.settings.divider_size == 'page-width'
             assign class = class | append: ' divider--page-width'
@@ -451,6 +463,7 @@
         first: first,
         logo: logo,
         menu: menu,
+        catalog_menu: catalog_menu,
         actions: actions,
         localization: localization_markup,
         search: search,

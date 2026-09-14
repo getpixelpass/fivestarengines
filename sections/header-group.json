@@ -74,11 +74,30 @@
             "drawer_dividers": false
           },
           "blocks": {}
+        },
+        "header-menu-secondary": {
+          "type": "_header-menu",
+          "static": true,
+          "settings": {
+            "menu": "catalog-menu",
+            "text_color": "#0D0A0A",
+            "type_font_primary_size": "0.75rem",
+            "menu_font_style": "inverse",
+            "type_font_primary_link": "body",
+            "type_case_primary_link": "uppercase",
+            "menu_style": "none",
+            "image_border_radius": 0,
+            "navigation_bar": false,
+            "drawer_accordion": false,
+            "drawer_accordion_expand_first": false,
+            "drawer_dividers": false
+          },
+          "blocks": {}
         }
       },
       "settings": {
         "logo_position": "left",
-        "menu_position": "left",
+        "menu_position": "right",
         "menu_row": "top",
         "show_search": true,
         "search_position": "right",
