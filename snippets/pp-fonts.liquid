@@ -45,4 +45,15 @@
     --font-accent--style: normal;
     --font-accent--weight: 800;
   }
+
+  /* pp: Neue Regrade Extrabold is a heavy display weight; at small UI
+     sizes (nav, badges) its counters close up without smoothing help.
+     See docs/REQUIREMENTS.md pre-launch blockers for the real fix
+     (either a properly-hinted licensed file, or stepping down to a
+     lighter weight at small sizes). */
+  header-menu {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
 </style>
